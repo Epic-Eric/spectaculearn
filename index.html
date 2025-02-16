@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpectacuLearn Smart Glasses</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .glasses-view {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .glasses-overlay {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .glasses-overlay.left { left: 0; }
+        .glasses-overlay.right { right: 0; }
+
+        .glasses-container:hover .glasses-overlay.left {
+            width: 40%;
+        }
+
+        .glasses-container:hover .glasses-overlay.right {
+            width: 60%;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-white">
+    
+    <!-- Hero Section -->
+    <div class="text-center py-12">
+        <h1 class="text-4xl font-bold">👓 SpectacuLearn Smart Glasses</h1>
+        <p class="mt-4 text-lg">Experience a new way of learning by seeing the blackboard and your notes at the same time.</p>
+    </div>
+
+    <!-- Smart Glasses View -->
+    <div class="flex justify-center">
+        <div class="glasses-container relative w-[80%] sm:w-[60%] h-60 glasses-view">
+            <!-- Background Image -->
+            <img src="https://source.unsplash.com/800x400/?classroom,blackboard" class="absolute w-full h-full object-cover">
+            
+            <!-- Overlays -->
+            <div class="glasses-overlay left">📖 Notebook View</div>
+            <div class="glasses-overlay right">🖊️ Blackboard View</div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="text-center mt-12 p-6">
+        <h2 class="text-2xl font-semibold">🔍 How It Works</h2>
+        <p class="mt-3 text-lg">Using advanced AI and AR technology, SpectacuLearn lets students see their notes while following the lecture.</p>
+        
+        <div class="mt-6 flex flex-wrap justify-center gap-6">
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg w-64">
+                <h3 class="text-xl font-semibold">🧠 AI-Powered</h3>
+                <p class="mt-2 text-gray-600 dark:text-gray-300">Real-time text recognition and display for seamless note-taking.</p>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg w-64">
+                <h3 class="text-xl font-semibold">🎓 Student-Friendly</h3>
+                <p class="mt-2 text-gray-600 dark:text-gray-300">Designed for effortless learning without distractions.</p>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg w-64">
+                <h3 class="text-xl font-semibold">🚀 Lightweight & Fast</h3>
+                <p class="mt-2 text-gray-600 dark:text-gray-300">Works smoothly with minimal hardware requirements.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Dark Mode Toggle -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const isDark = localStorage.getItem("darkMode") === "true";
+            if (isDark) document.body.classList.add("dark");
+            
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "d") {
+                    document.body.classList.toggle("dark");
+                    localStorage.setItem("darkMode", document.body.classList.contains("dark"));
+                }
+            });
+        });
+    </script>
+</body>
+</html>
